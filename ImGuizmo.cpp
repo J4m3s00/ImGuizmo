@@ -950,6 +950,12 @@ namespace IMGUIZMO_NAMESPACE
       return gContext.mbUsing || gContext.mbUsingBounds;
    }
 
+   bool IsUsing(int id)
+   {
+      return (gContext.mbUsing || gContext.mbUsingBounds) && id != 0 ? gContext.mEditingID == id : true;
+   }
+
+
    bool IsOver()
    {
       return (Intersects(gContext.mOperation, TRANSLATE) && GetMoveType(gContext.mOperation, NULL) != MT_NONE) ||
